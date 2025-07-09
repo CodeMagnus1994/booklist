@@ -17,6 +17,10 @@ public class PersonEntity {
     @Column(name="password")
     private String password;
 
+    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name="booklist")
+    private ListEntity listEntity;
+
     public PersonEntity(String username, String password) {
         this.username = username;
         this.password = password;
@@ -48,5 +52,13 @@ public class PersonEntity {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public ListEntity getListEntity() {
+        return listEntity;
+    }
+
+    public void setListEntity(ListEntity listEntity) {
+        this.listEntity = listEntity;
     }
 }

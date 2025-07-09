@@ -13,7 +13,6 @@ public class ListEntity {
     @Column(name="id")
     int id;
 
-
     @ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
     @JoinTable(
             name="book_list_relation",

@@ -13,7 +13,6 @@ import java.util.List;
 public class ListService {
 
     private ListRepository listRepository;
-
     @Autowired
     public ListService(ListRepository listRepository) {
         this.listRepository = listRepository;
@@ -46,8 +45,5 @@ public class ListService {
         return listRepository.save(list);
     }
 
-    public void deleteList(int id) {
-        listRepository.deleteById(id);
-    }
 
 }
