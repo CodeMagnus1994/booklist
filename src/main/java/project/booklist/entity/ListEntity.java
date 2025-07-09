@@ -13,9 +13,14 @@ public class ListEntity {
     @Column(name="id")
     int id;
 
-    @OneToMany(fetch = FetchType.LAZY, cascade = {CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH})
-    @JoinColumn(name="book_id")
-    private List<BookEntity> bookEntityList;
+
+    @ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
+    @JoinTable(
+            name="book_list_relation",
+            joinColumns = @JoinColumn(name="list_id"),
+            inverseJoinColumns = @JoinColumn(name="book_id")
+    )
+    List<BookEntity> bookEntityList;
 
     public ListEntity(){
 

@@ -2,6 +2,8 @@ package project.booklist.entity;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name="book")
 public class BookEntity {
@@ -49,4 +51,5 @@ public class BookEntity {
     public void setAuthor(String author) {
         this.author = author;
     }
+
 }
